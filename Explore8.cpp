@@ -1,6 +1,9 @@
 
 #include <iostream>
 using namespace std;
+
+//Point findLowestPoint(Line l);
+
 struct Point {
 	double x;
 	double y;
@@ -48,6 +51,16 @@ Point FindMidPoint(Line l) {
     return mid;
 }
 
+Point findLowestPoint(Line l){
+
+    if(l.start.y < l.end.y){
+        return l.start;
+    }else{
+        return l.end;
+    }
+
+}
+
 int main() {
     Line a(Point(3,9), Point(12,22));
     cout << "Line a";
@@ -57,6 +70,10 @@ int main() {
     Point midPoint = FindMidPoint(a);
     PrintPoint(midPoint);
     cout << endl;
+
+    Point lowest = findLowestPoint(a);
+    PrintPoint(lowest);
+
     return 0;
 }
 
